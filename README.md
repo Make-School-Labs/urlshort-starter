@@ -8,7 +8,7 @@ For instance, if we have a redirect setup for `/dogs` to `https://www.somesite.c
 
 ## Instructions
 
-To complete this exercises you will need to implement the stubbed out methods in [`handler.go`](handler.go). Each method has lots of comments explaining what it should do, and there is also a [`main/main.go`](main/main.go) source file that uses the package to help you test your code and get an idea of what your program should be doing.
+To complete this exercise, you will need to implement the stubbed out methods in [`handler.go`](handler.go). Each method has lots of comments explaining what it should do, and there is also a [`main/main.go`](main/main.go) source file that uses the package to help you test your code and get an idea of what your program should be doing.
 
 I suggest first commenting out all of the code in `main.go` related to the `JSONHandler` function and focusing on implementing the `MapHandler` function first.
 

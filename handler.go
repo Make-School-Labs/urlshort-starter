@@ -1,7 +1,7 @@
 package urlshort
 
 import (
-	//	TODO: Uncomment this...
+	// TODO: Step 1 - Uncomment this...
 	// "encoding/json"
 	"net/http"
 )
@@ -18,8 +18,14 @@ type pathToURL struct {
 // If the path is not provided in the map, then the fallback
 // http.Handler will be called instead.
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
-	//	TODO: Implement this...
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		originalURL, ok := pathsToUrls[r.URL.Path]
+		if ok {
+			http.Redirect(w, r, originalURL, 301)
+		} else {
+			fallback.ServeHTTP(w, r)
+		}
+	}
 }
 
 // JSONHandler will parse the provided JSON and then return
@@ -39,7 +45,7 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 //
 // The only errors that can be returned all related to having
 // invalid JSON data.
-func JSONHandler(jsonData []byte, fallback http.Handler) (jsonHandler http.HandlerFunc, err error) {
-	//	TODO: Implement this...
-	return
-}
+// func JSONHandler(jsonData []byte, fallback http.Handler) (jsonHandler http.HandlerFunc, err error) {
+// 	// TODO: Step 2 - Implement this...
+// 	return
+// }
